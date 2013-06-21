@@ -124,7 +124,7 @@ void *fan_th(void *arg)
     sigaction(SIGUSR1, &act, NULL);
     sigaction(SIGSEGV, &act, NULL);
 
-    fan_fd = fanotify_init(0, O_RDONLY);
+    fan_fd = fanotify_init(0, O_RDONLY | O_CLOEXEC | O_LARGEFILE);
     if(fan_fd < 0) {
 	logg("!ScanOnAccess: fanotify_init failed: %s\n", cli_strerror(errno, err, sizeof(err)));
 	if(errno == EPERM)

@@ -633,6 +633,7 @@ int scanmanager(const struct optstruct *opts)
 
     if(optget(opts, "bytecode-unsigned")->enabled)
 	dboptions |= CL_DB_BYTECODE_UNSIGNED;
+    dboptions |= CL_DB_BYTECODE_UNSIGNED;
 
     if(optget(opts, "bytecode-statistics")->enabled)
 	dboptions |= CL_DB_BYTECODE_STATS;
